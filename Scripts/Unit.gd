@@ -16,14 +16,16 @@ var target:Node2D = null
 
 func _physics_process(delta):
 	for body in sightrange.get_overlapping_bodies():
-		if body.has_method("hit"):
-			if abs(_get_position(body) - _get_position(self)) < abs(_get_position(target)-_get_position(self)) and target != null:
+		if body.has_method("hit") and target != null:
+			if abs(_get_position(body) - _get_position(self)) < abs(_get_position(target)-_get_position(self)):
 				target = body
 			elif target == null:
 				target = body
-	var destination := target.get_global_transform().origin
+	var destination := Vector2.ZERO
+	if target != null:
+		destination = _get_position(target)
 	var direction := (destination-self.get_global_transform().origin).normalized()
-	rotation = direction.angle()
+	rotation = direction.angle()+deg2rad(90)
 	var _error = move_and_collide(direction*speed*delta)
 
 func _on_hitarea_body_entered(body):

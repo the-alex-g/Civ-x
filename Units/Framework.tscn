@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Unit.gd" type="Script" id=1]
+[ext_resource path="res://Art/Units2.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 400.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 45, 45.116 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 55, 55 )
+
+[node name="Unit" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+
+[node name="Sightrange" type="Area2D" parent="."]
+position = Vector2( 38, 38 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sightrange"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 38, 38 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 38, 38 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="Soldiers" type="Node2D" parent="."]
+
+[node name="Soldier1" type="Sprite" parent="Soldiers"]
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier2" type="Sprite" parent="Soldiers"]
+position = Vector2( 38, 0 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier3" type="Sprite" parent="Soldiers"]
+position = Vector2( 76, 0 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier4" type="Sprite" parent="Soldiers"]
+position = Vector2( 0, 38 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier5" type="Sprite" parent="Soldiers"]
+position = Vector2( 38, 38 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier6" type="Sprite" parent="Soldiers"]
+position = Vector2( 76, 38 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier7" type="Sprite" parent="Soldiers"]
+position = Vector2( 0, 76 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier8" type="Sprite" parent="Soldiers"]
+position = Vector2( 38, 76 )
+texture = ExtResource( 2 )
+vframes = 2
+
+[node name="Soldier9" type="Sprite" parent="Soldiers"]
+position = Vector2( 76, 76 )
+texture = ExtResource( 2 )
+vframes = 2
